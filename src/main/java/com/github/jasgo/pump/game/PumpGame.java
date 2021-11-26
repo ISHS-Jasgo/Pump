@@ -22,12 +22,14 @@ public class PumpGame {
     private final List<KeyIcon> pattern;
     private KeyIcon current;
     private int point;
+    private int fail;
     private final Player player;
 
     public PumpGame(List<KeyIcon> pattern, Player player) {
         this.pattern = pattern;
         this.player = player;
         this.point = 0;
+        this.fail = 0;
     }
     public void start(int length) {
         progress.addPlayer(player);
@@ -103,5 +105,16 @@ public class PumpGame {
     public void reset() {
         player.getVehicle().remove();
         progress.removePlayer(player);
+    }
+
+    public int getFail() {
+        return fail;
+    }
+
+    public void setFail(int fail) {
+        this.fail = fail;
+    }
+    public void addFail(int fail) {
+        setFail(getFail()+fail);
     }
 }

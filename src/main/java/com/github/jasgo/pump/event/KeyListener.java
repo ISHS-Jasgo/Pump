@@ -24,7 +24,7 @@ public class KeyListener implements Listener {
                     player.showTitle(Title.title(Component.text(ChatColor.GREEN + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
                 } else {
-                    game.addPoint(-1);
+                    game.addFail(1);
                     player.showTitle(Title.title(Component.text(ChatColor.RED + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 }
@@ -34,7 +34,7 @@ public class KeyListener implements Listener {
                     player.showTitle(Title.title(Component.text(ChatColor.GREEN + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
                 } else {
-                    game.addPoint(-1);
+                    game.addFail(1);
                     player.showTitle(Title.title(Component.text(ChatColor.RED + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 }
@@ -44,7 +44,7 @@ public class KeyListener implements Listener {
                     player.showTitle(Title.title(Component.text(ChatColor.GREEN + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
                 } else {
-                    game.addPoint(-1);
+                    game.addFail(1);
                     player.showTitle(Title.title(Component.text(ChatColor.RED + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 }
@@ -54,7 +54,7 @@ public class KeyListener implements Listener {
                     player.showTitle(Title.title(Component.text(ChatColor.GREEN + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
                 } else {
-                    game.addPoint(-1);
+                    game.addFail(1);
                     player.showTitle(Title.title(Component.text(ChatColor.RED + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 }
@@ -64,7 +64,7 @@ public class KeyListener implements Listener {
                     player.showTitle(Title.title(Component.text(ChatColor.GREEN + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
                 } else {
-                    game.addPoint(-1);
+                    game.addFail(1);
                     player.showTitle(Title.title(Component.text(ChatColor.RED + game.getCurrent().getIcon()), Component.text("")));
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 }
@@ -73,8 +73,7 @@ public class KeyListener implements Listener {
     }
     @EventHandler
     public void onGameEnd(PumpGameEndEvent event) {
-        event.getPlayer().showTitle(Title.title(Component.text(event.getGame().getPoint() + "점"), Component.text("")));
-        event.getGame().setPoint(0);
+        event.getPlayer().showTitle(Title.title(Component.text(event.getGame().getPoint() + "점"), Component.text("실패한 개수: " + event.getGame().getFail() + "개")));
         PumpGameManager.end(event.getPlayer());
     }
     @EventHandler

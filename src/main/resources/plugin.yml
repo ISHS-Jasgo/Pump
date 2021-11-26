@@ -1,0 +1,9 @@
+name: Pump
+version: ${project.version}
+main: com.github.jasgo.pump.Pump
+api-version: 1.17
+authors: [ Jasgo ]
+
+commands:
+  pump:
+    description: "/pump"
